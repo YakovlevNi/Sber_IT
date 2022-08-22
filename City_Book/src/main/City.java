@@ -56,9 +56,10 @@ public class City implements Serializable {
     public void setFoundation(String foundation) {
         this.foundation = foundation;
     }
+
     @Override
     public String toString() {
-        return "City{" + "'id='" + id + " 'name='" + name +" 'region='" + region + " 'district ='" + district +" 'population= " + population +" 'foundation=" + foundation +'}';
+        return "City{" + "'id='" + id + " 'name='" + name + " 'region='" + region + " 'district ='" + district + " 'population= " + population + " 'foundation=" + foundation + '}';
     }
 
 
