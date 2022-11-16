@@ -1,6 +1,10 @@
 import java.io.Serializable;
+import java.util.*;
 
+import java.io.Serializable;
+import java.util.*;
 public class City implements Serializable {
+
 
     private String id;
     private String name;
@@ -8,6 +12,7 @@ public class City implements Serializable {
     private String district;
     private int population;
     private String foundation;
+
 
     public String getId() {
         return id;
@@ -61,6 +66,7 @@ public class City implements Serializable {
     public String toString() {
         return "City{" + "'id='" + id + " 'name='" + name + " 'region='" + region + " 'district ='" + district + " 'population= " + population + " 'foundation=" + foundation + '}';
     }
+
 
 
 }
