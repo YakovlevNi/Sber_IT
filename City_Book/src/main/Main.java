@@ -2,7 +2,6 @@ import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.bean.ColumnPositionMappingStrategy;
 import au.com.bytecode.opencsv.bean.CsvToBean;
 import org.apache.commons.lang.builder.CompareToBuilder;
-import org.checkerframework.checker.units.qual.K;
 
 
 import java.io.FileNotFoundException;
@@ -14,10 +13,13 @@ public class Main {
     private static List<City> cityList = new ArrayList<>();
     private static HashMap<String, Integer> cityPeopleList = new HashMap<>();
 
+    private static List<String> regionList = new ArrayList<String>();
+
     public static void main(String[] args) throws FileNotFoundException {
         cityParser();
         citySorter();
         getMaxPopulation();
+        getCityCountPerRegion();
 
     }
 
@@ -47,6 +49,9 @@ public class Main {
         for (City city : cityList) {
             System.out.println(city);
             cityPeopleList.put(city.getId(), city.getPopulation());
+            regionList.add(city.getRegion());
+
+
         }
 
     }
@@ -55,8 +60,16 @@ public class Main {
         Map.Entry<String, Integer> maxEntry = cityPeopleList.entrySet().stream()
                 .max(Comparator.comparing(Map.Entry::getValue))
                 .orElse(null);
-
         System.out.println("\n" + "Максимальное количество жителей" + "\n" + maxEntry);
+    }
+
+    private static void getCityCountPerRegion() {
+        HashMap<String, Integer> regionCount = new HashMap<String, Integer>();
+        Set<String> unique = new HashSet<String>(regionList);
+        for (String key : unique) {
+            regionCount.put(key, Collections.frequency(regionList, key));
+        }
+        System.out.println(regionCount);
     }
 
 
