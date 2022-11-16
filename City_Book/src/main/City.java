@@ -3,6 +3,7 @@ import java.util.*;
 
 import java.io.Serializable;
 import java.util.*;
+
 public class City implements Serializable {
 
 
@@ -66,7 +67,6 @@ public class City implements Serializable {
     public String toString() {
         return "City{" + "'id='" + id + " 'name='" + name + " 'region='" + region + " 'district ='" + district + " 'population= " + population + " 'foundation=" + foundation + '}';
     }
-
 
 
 }
